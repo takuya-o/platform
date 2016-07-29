@@ -755,7 +755,7 @@ func sendNotificationEmail(c *Context, post *model.Post, user *model.User, chann
 
 	bodyPage := utils.NewHTMLTemplate("post_body", user.Locale)
 	bodyPage.Props["SiteURL"] = c.GetSiteURL()
-	bodyPage.Props["PostMessage"] = model.ClearMentionTags(post.Message)
+	bodyPage.Props["PostMessage"] = post.Message
 	bodyPage.Props["TeamLink"] = teamURL + "/pl/" + post.Id
 	bodyPage.Props["BodyText"] = bodyText
 	bodyPage.Props["Button"] = userLocale("api.templates.post_body.button")
@@ -845,9 +845,9 @@ func sendPushNotification(post *model.Post, user *model.User, channel *model.Cha
 			if *utils.Cfg.EmailSettings.PushNotificationContents == model.FULL_NOTIFICATION {
 				if channel.Type == model.CHANNEL_DIRECT {
 					msg.Category = model.CATEGORY_DM
-					msg.Message = "@" + senderName + ": " + model.ClearMentionTags(post.Message)
+					msg.Message = "@" + senderName + ": " + post.Message
 				} else {
-					msg.Message = senderName + userLocale("api.post.send_notifications_and_forget.push_in") + channelName + ": " + model.ClearMentionTags(post.Message)
+					msg.Message = senderName + userLocale("api.post.send_notifications_and_forget.push_in") + channelName + ": " + post.Message
 				}
 			} else {
 				if channel.Type == model.CHANNEL_DIRECT {
