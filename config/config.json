@@ -25,7 +25,8 @@
         "WebsocketPort": 80,
         "WebserverMode": "gzip",
         "EnableCustomEmoji": false,
-        "RestrictCustomEmojiCreation": "all"
+        "RestrictCustomEmojiCreation": "all",
+        "OutsideURL": ""
     },
     "TeamSettings": {
         "SiteName": "Mattermost",

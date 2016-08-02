@@ -140,7 +140,11 @@ func (h handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 
 	protocol := GetProtocol(r)
-	c.SetSiteURL(protocol + "://" + r.Host)
+	if *utils.Cfg.ServiceSettings.OutsideURL == "" {
+	   c.SetSiteURL(protocol + "://" + r.Host)
+	} else {
+	  c.SetSiteURL(*utils.Cfg.ServiceSettings.OutsideURL)
+        }
 
 	w.Header().Set(model.HEADER_REQUEST_ID, c.RequestId)
 	w.Header().Set(model.HEADER_VERSION_ID, fmt.Sprintf("%v.%v", model.CurrentVersion, utils.CfgLastModified))

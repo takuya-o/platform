@@ -76,6 +76,7 @@ type ServiceSettings struct {
 	WebserverMode                     *string
 	EnableCustomEmoji                 *bool
 	RestrictCustomEmojiCreation       *string
+	OutsideURL                        *string
 }
 
 type SSOSettings struct {
@@ -682,6 +683,11 @@ func (o *Config) SetDefaults() {
 		*o.ServiceSettings.WebserverMode = "gzip"
 	} else if *o.ServiceSettings.WebserverMode == "regular" {
 		*o.ServiceSettings.WebserverMode = "gzip"
+	}
+
+	if o.ServiceSettings.OutsideURL == nil {
+		o.ServiceSettings.OutsideURL = new(string)
+		*o.ServiceSettings.OutsideURL = ""
 	}
 
 	if o.ServiceSettings.EnableCustomEmoji == nil {
