@@ -16,19 +16,19 @@
   "license": "MIT",
   "devDependencies": {
     "browserify": "^10.2.4",
-    "clean-css": "~2.2.15",
+    "clean-css": "~5.3.3",
     "eslint": "^1.10.2",
-    "express": "~3.3.3",
+    "express": "~5.1.0",
     "glob": "^5.0.15",
     "jasmine": "^2.3.2",
     "jasmine-core": "^2.3.4",
-    "js-yaml": "^3.3.1",
+    "js-yaml": "^4.1.1",
     "jspngopt": "^0.1.0",
     "less": "~1.7.5",
     "nomnom": "^1.8.1",
     "pako": "0.2.7",
     "selenium-webdriver": "^2.46.1",
-    "uglify-js": "~2.4.15"
+    "uglify-js": "~3.19.3"
   },
   "bin": "cli.js",
   "scripts": {
